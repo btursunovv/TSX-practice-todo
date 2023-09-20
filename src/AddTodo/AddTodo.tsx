@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "./AddTodo.css";
 
 export const AddTodo = () => {
+  const [toggle, setToggle] = useState(true);
+
   return (
     <div className="AddTodoWrapper">
       <input
@@ -9,7 +11,12 @@ export const AddTodo = () => {
         placeholder="What should i do next?"
         type="text"
       />
-      <button className="AddTodoButton">Add to list</button>
+      <button
+        onClick={() => setToggle(!toggle)}
+        className={toggle ? "AddTodoButtonActive" : "AddTodoButtonInActive"}
+      >
+        Add to list
+      </button>
     </div>
   );
 };
